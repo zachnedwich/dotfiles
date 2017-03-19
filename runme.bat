@@ -1,21 +1,68 @@
-REM RUN ME AS ADMIN
-ECHO OFF
-START /WAIT  @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-
-
-choco install googlechrome -Y
-choco install jre8 -Y
-choco install firefox -Y
-choco install adobereader -Y
-choco install 7zip.install -Y
-choco install notepadplusplus.install -Y
-choco install nodejs.install -Y
-choco install git.install -Y
-choco install vlc -Y
-choco install jdk8 -Y
-choco install filezilla -Y
-choco install putty -Y
-choco install rufus -Y
-choco install sqlitebrowser -Y
-choco install androidstudio -Y
-choco install sublimetext3
+cinst -Y 7zip.install
+cinst -Y adobereader
+cinst -Y android-sdk
+cinst -Y AndroidStudio
+cinst -Y aria2
+cinst -Y AstroGrep
+cinst -Y Atom
+cinst -Y autohotkey.portable
+cinst -Y beyondcompare
+cinst -Y cabal
+cinst -Y chocolatey
+cinst -Y chocolatey-core.extension
+cinst -Y Clover
+cinst -Y cpu-z
+cinst -Y cpu-z.install
+cinst -Y Cygwin
+cinst -Y easyconnect
+cinst -Y elixir
+cinst -Y erlang
+cinst -Y everything
+cinst -Y f.lux
+cinst -Y filebot
+cinst -Y filezilla
+cinst -Y Firefox
+cinst -Y foobar2000
+cinst -Y ghc
+cinst -Y git.install
+cinst -Y GoogleChrome
+cinst -Y Gow
+cinst -Y gpg4win-vanilla
+cinst -Y gpu-z
+cinst -Y Hain
+cinst -Y hwmonitor
+cinst -Y hyper
+cinst -Y javaruntime
+cinst -Y jdk8
+cinst -Y jre8
+cinst -Y keepassx
+cinst -Y mm-choco.extension
+cinst -Y musicbee
+cinst -Y nodejs
+cinst -Y nodejs.install
+cinst -Y notepadplusplus.install
+cinst -Y openssh
+cinst -Y openvpn
+cinst -Y pgadmin3
+cinst -Y postman
+cinst -Y procexp
+cinst -Y putty
+cinst -Y putty.portable
+cinst -Y python2
+cinst -Y ReSharper
+cinst -Y resharper-platform
+cinst -Y ruby
+cinst -Y rufus
+cinst -Y rufus.install
+cinst -Y speccy
+cinst -Y sqlitebrowser
+cinst -Y sublimetext3
+cinst -Y sysinternals
+cinst -Y vcredist2010
+cinst -Y virtualbox
+cinst -Y vlc
+cinst -Y win32-openssh
+cinst -Y winscp
+cinst -Y winscp.install
+cinst -Y wireshark
+cinst -Y yarn
