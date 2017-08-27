@@ -35,16 +35,20 @@ smart_borders on
 
 # Remap keys
 
-bindsym --release Print exec scrot -s
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioStop exec mpc stop
+bindsym --release Print exec --no-startup-id scrot -s
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioStop exec --no-startup-id mpc stop
 
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-bindsym XF86AudioMute        exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+bindsym XF86AudioMute        exec --no-startup-id amixer set Master toggle
 
+# map lock screen key combo
+bindsym --release Ctrl+Shift+l exec slock
+# browser
+bindsym Ctrl+Shift+b exec chromium
 
 # Resizing windows in i3 using keyboard only
 # https://unix.stackexchange.com/q/255344/150597
@@ -65,7 +69,7 @@ bindsym $mod+Ctrl+Shift+Left resize grow width 10 px or 10 ppt
 floating_modifier Mod4
 
 # start a terminal
-bindsym Mod4+Return exec alacritty
+bindsym Mod4+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym Mod4+Shift+q kill
@@ -202,7 +206,7 @@ hide_edge_borders none
 
 
 bar {
-    status_command    python ~/.i3pystatus.py
+    status_command    i3pystatus -c ~/.config/i3/i3pystatus.py
         position          top
         workspace_buttons yes
         font pango:Inconsolata 8, FontAwesome 8
@@ -216,6 +220,4 @@ bar {
             urgent_workspace    #2e394a #2e394a #e7dfd9
          }
 }
-
-exec --no-startup-id compton --config .config/compton.conf
 

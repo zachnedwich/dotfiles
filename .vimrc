@@ -188,8 +188,6 @@ let g:airline_right_alt_sep = ''
  " Use hybrid theme.
 let g:airline_theme = 'hybridline'
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
 "}}}
 " Plugins - Install {{{
 " -----------------------------------------------------------------------------
@@ -261,7 +259,7 @@ nnoremap <Leader>as :set ft=sql<CR>:Autoformat<CR>
 " Use Ag over Grep
 if executable('ag')
   let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = 'ag %s --follow --nocolor --hidden --nogroup -g ""'
+  let g:ctrlp_user_command = 'ag %s --follow --nocolor --nogroup -g ""'
   " let g:ctrlp_user_command_async = 1
 endif
 
@@ -349,4 +347,4 @@ nnoremap <Leader>1 :NERDTreeToggle<CR>
 
 let g:plug_window = 'topleft new' " Open plug window in a horizontal split.
 
-
+"}}}
