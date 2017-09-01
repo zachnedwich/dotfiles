@@ -185,7 +185,7 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
- " Use hybrid theme.
+" Use hybrid theme.
 let g:airline_theme = 'hybridline'
 
 "}}}
@@ -195,7 +195,8 @@ let g:airline_theme = 'hybridline'
 call plug#begin('~/.vim/plugged')
 
 Plug 'Chiel92/vim-autoformat'         " Integrate external file formatters.
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' } " Code-completion maanger.
+"Plug 'lifepillar/vim-mucomplete'
+Plug 'Valloric/YouCompleteMe'         " Code-completion maanger.
 Plug 'benekastah/neomake'             " Asynchronous syntax checking with make.
 Plug 'cakebaker/scss-syntax.vim'      " Improved SCSS syntax.
 Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file, buffer, mru, tag finder.
@@ -218,6 +219,7 @@ Plug 'vim-airline/vim-airline-themes' " Pretty statusline.
 Plug 'w0ng/vim-hybrid'                " Dark colorscheme.
 
 call plug#end()
+
 
 "}}}
 " Plugin Settings - autoformat {{{
@@ -263,15 +265,16 @@ if executable('ag')
   " let g:ctrlp_user_command_async = 1
 endif
 
-  let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")':   ['<c-n>'],
-    \ 'PrtSelectMove("k")':   ['<c-p>'],
-    \ 'PrtHistory(-1)':       ['<c-j>'],
-    \ 'PrtHistory(1)':        ['<c-k>']
-    \ }
+let g:ctrlp_prompt_mappings = {
+      \ 'PrtSelectMove("j")':   ['<c-n>'],
+      \ 'PrtSelectMove("k")':   ['<c-p>'],
+      \ 'PrtHistory(-1)':       ['<c-j>'],
+      \ 'PrtHistory(1)':        ['<c-k>']
+      \ }
 
 let g:ctrlp_map  = '<Leader>p'
 nnoremap <Leader>e :CtrlPBuffer<CR>
+
 
 "}}}
 " Plugin Settings - easy-align {{{
@@ -340,6 +343,9 @@ autocmd! BufWritePost * Neomake
 
 " Toggle NERD tree window.
 nnoremap <Leader>1 :NERDTreeToggle<CR>
+
+" Show hidden files in NERD buffer
+let NERDTreeShowHidden=1
 
 "}}}
 " Plugin Settings - plug {{{
