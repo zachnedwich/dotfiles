@@ -1,0 +1,24 @@
+
+alias vi='vim'
+alias ls='ls --color=auto'
+
+alias grep='grep --color=auto'
+alias ls='ls -hFG'
+alias sup='sudo xbps-install -Syu'
+alias sin='sudo xbps-install $1'
+
+# git
+
+alias gcm='git commit -m '
+alias gci='git commit --interactive '
+alias ga='git add '
+alias gb='git branch '
+alias gcb='git checkout --branch '
+alias gc='git checkout '
+alias gp='git pull '
+alias gpr='git pull --rebase && git submodule update --init --recursive '
+alias gr='git rebase -i '
+alias gpu='git push '
+alias gs='git status '
+alias gl='git log '
+
