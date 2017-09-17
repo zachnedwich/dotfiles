@@ -206,7 +206,7 @@ hide_edge_borders none
 
 
 bar {
-    status_command    i3pystatus -c ~/.config/i3/i3pystatus.py
+    status_command    python3 ~/.config/i3/i3pystatusconf.py
         position          top
         workspace_buttons yes
         font pango:Inconsolata 8, FontAwesome 8

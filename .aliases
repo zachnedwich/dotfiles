@@ -19,6 +19,6 @@ alias gp='git pull '
 alias gpr='git pull --rebase && git submodule update --init --recursive '
 alias gr='git rebase -i '
 alias gpu='git push '
-alias gs='git status '
+alias gst='git status '
 alias gl='git log '
-
+alias grh='git reset HEAD --hard && git clean -f -d '
