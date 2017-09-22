@@ -16,7 +16,13 @@ fi
 # User configuration sourced by interactive shells
 #
 # Vi mode
+export KEYTIMEOUT=1
 bindkey -v
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
 #
 # Shared aliases from bash
 #
