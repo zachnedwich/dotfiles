@@ -15,7 +15,8 @@ fi
 #
 # User configuration sourced by interactive shells
 #
-
+# Vi mode
+bindkey -v
 #
 # Shared aliases from bash
 #
