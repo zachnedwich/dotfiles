@@ -36,7 +36,13 @@ status.register("cpu_usage",
         on_leftclick="alacritty --title=htop -e 'htop'",
         format="  {usage}%",)
 
-status.register("temp", format=" {temp}°C",)
+
+status.register("temp",
+        format="{Package_id_0}°C \uE0C0{Core_0_bar}{Core_1_bar}{Core_2_bar}{Core_3_bar}",
+        hints={"markup": "pango"},
+        lm_sensors_enabled=True,
+        dynamic_color=True)
+
 # Note: the network module requires PyPI package netifaces
 status.register("network",
         interface="enp0s31f6",
@@ -63,8 +69,7 @@ status.register("alsa",
         on_leftclick = ["switch_mute"],
         on_upscroll = "decrease_volume",
         on_downscroll = "increase_volume",
-        format=" {volume}%",
-        )
+        format=" {volume}%",        )
 
 
 status.run()

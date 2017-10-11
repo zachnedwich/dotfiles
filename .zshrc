@@ -3,6 +3,7 @@
 #
 # User configuration sourced by interactive shells
 #
+export TERM='xterm-256color'
 
 # Change default zim location 
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
@@ -28,6 +29,7 @@ bindkey '^r' history-incremental-search-backward
 #
 source $HOME/.aliases
 
+export PATH=$PATH:/home/zach/.cargo/bin
 #
 # NVM plugin
 #
