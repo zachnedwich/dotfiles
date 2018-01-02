@@ -22,3 +22,7 @@ alias gpu='git push '
 alias gst='git status '
 alias gl='git log '
 alias grh='git reset HEAD --hard && git clean -f -d '
+
+alias rcp='rsync -avhP'
+alias rmv=rcp='rsync -avhP --remove-sent-files'
+

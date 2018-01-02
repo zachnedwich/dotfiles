@@ -217,7 +217,7 @@ Plug 'tpope/vim-surround'             " Quoting/parenthesizing made simple.
 Plug 'vim-airline/vim-airline'        " Pretty statusline.
 Plug 'vim-airline/vim-airline-themes' " Pretty statusline.
 Plug 'w0ng/vim-hybrid'                " Dark colorscheme.
-
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 

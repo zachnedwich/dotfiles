@@ -30,10 +30,6 @@ bindkey '^r' history-incremental-search-backward
 source $HOME/.aliases
 
 export PATH=$PATH:/home/zach/.cargo/bin
-#
-# NVM plugin
-#
-source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 
 
 # Change default zim location 

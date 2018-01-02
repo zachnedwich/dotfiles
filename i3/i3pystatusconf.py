@@ -8,7 +8,7 @@ status = Status(logfile='$HOME/i3pystatus.log')
 # Tue 30 Jul 11:59:46 PM KW31
 #
 status.register("clock",
-        format=" %I:%M:%S%p",
+        format=" %I:%M %p",
         color='#C678DD',
         interval=1,)
 
@@ -21,7 +21,7 @@ status.register("clock",
 
 status.register(
         'weather',
-        format=' {condition} {current_temp}{temp_unit}[ {icon}][ H: {high_temp}][ L: {low_temp}][ {update_error}]',
+        format='{condition} {current_temp}{temp_unit}[ {icon}][ H: {high_temp}][ L: {low_temp}][ {update_error}]',
         colorize=True,
         hints={'markup': 'pango'},
         backend=weathercom.Weathercom(
@@ -43,10 +43,9 @@ status.register("temp",
         lm_sensors_enabled=True,
         dynamic_color=True)
 
-# Note: the network module requires PyPI package netifaces
 status.register("network",
         interface="enp0s31f6",
-        format_up="{kbs}KB/s  {rx_tot_Mbytes}MB  {tx_tot_Mbytes}MB", format_down="{interface}: DOWN",)
+        format_up="  {rx_tot_Mbytes}MB ({bytes_recv}kb)  {tx_tot_Mbytes}MB ({bytes_sent}kb)", format_down="{interface}: DOWN",)
 
 
 
