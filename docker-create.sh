@@ -1,0 +1,17 @@
+
+docker run --name nzbget -v /docker/containers/nzbget:/config -v /mnt/storage/temp:/downloads --net host --restart always -h nas --expose 6789/tcp -e PUID=1000 -e PGID=1000 -e TZ=Australia/Brisbane -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -e "PS1=$(whoami)@$(hostname):$(pwd)$ " -e HOME=/root -e TERM=xterm -a stdout -a stderr --entrypoint "/init" linuxserver/nzbget:testing
+
+docker run --name hydra -v /docker/containers/hydra/config:/config -v /mnt/storage/temp:/downloads -p 5075:5075/tcp --net bridge --restart always -h 5511956f45c8 --expose 5075/tcp -e PGID=1000 -e PUID=1000 -e TZ=Australia/Brisbane -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -e "PS1=$(whoami)@$(hostname):$(pwd)$ " -e HOME=/root -e TERM=xterm -e PYTHONIOENCODING=UTF-8 -a stdout -a stderr --entrypoint "/init" linuxserver/hydra:latest
+
+docker run --name watchtower -v /var/run/docker.sock:/var/run/docker.sock --net bridge --restart always -h 8500b3140a40 -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -a stdout -a stderr --entrypoint "/watchtower" v2tec/watchtower:latest
+
+docker run --name sonarr -v /mnt/storage/temp:/downloads -v /etc/localtime:/etc/localtime:ro -v /mnt/storage/TV Shows:/storage/tv_shows -v /mnt/storage/TV Shows:/tv -v /docker/containers/sonarr/config:/config --net host --restart always -h nas --expose 8989/tcp -e TZ=Australia/Brisbane -e PGID=1000 -e PUID=1000 -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -e HOME=/root -e LANGUAGE=en_US.UTF-8 -e LANG=en_US.UTF-8 -e TERM=xterm -e XDG_CONFIG_HOME=/config/xdg -a stdout -a stderr --entrypoint "/init" linuxserver/sonarr:develop
+
+docker run --name radarr -v /mnt/storage/Movies:/movies -v /docker/containers/radarr/config:/config -v /mnt/storage/temp:/downloads -v /etc/localtime:/etc/localtime:ro -p 7878:7878/tcp --net bridge --restart always -h a82dc11166da --expose 7878/tcp -e TZ=Australia/Brisbane -e PGID=1000 -e PUID=1000 -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -e HOME=/root -e LANGUAGE=en_US.UTF-8 -e LANG=en_US.UTF-8 -e TERM=xterm -e XDG_CONFIG_HOME=/config/xdg -a stdout -a stderr --entrypoint "/init" linuxserver/radarr:latest
+
+docker run --name unifi -v /docker/containers/unifi/config:/config -p 3478:3478/udp -p 8080:8080/tcp -p 8081:8081/tcp -p 8443:8443/tcp -p 8843:8843/tcp -p 8880:8880/tcp --net bridge --restart always -h 673edd60dceb --expose 3478/udp --expose 8080/tcp --expose 8081/tcp --expose 8443/tcp --expose 8843/tcp --expose 8880/tcp -e PGID=1000 -e PUID=1000 -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -e HOME=/root -e LANGUAGE=en_US.UTF-8 -e LANG=en_US.UTF-8 -e TERM=xterm -a stdout -a stderr --entrypoint "/init" linuxserver/unifi:latest
+
+docker run --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v /docker/containers/portainer/config:/data -p 9000:9000/tcp --restart always -h b8418b3fbb55 --expose 9000/tcp -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -a stdout -a stderr --entrypoint "/portainer" portainer/portainer:latest
+
+docker run --name gogs -v /docker/containers/gogs/config:/data -p 10022:22/tcp -p 10080:3000/tcp --net bridge --restart always -h 5792cfe122e6 --expose 22/tcp --expose 3000/tcp -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -e GOGS_CUSTOM=/data/gogs -a stdout -a stderr --entrypoint "/app/gogs/docker/start.sh" gogs/gogs:latest /bin/s6-svscan /app/gogs/docker/s6/
+
