@@ -26,3 +26,4 @@ alias grh='git reset HEAD --hard && git clean -f -d '
 alias rcp='rsync -avhP'
 alias rmv=rcp='rsync -avhP --remove-sent-files'
 
+alias ixio="curl -F 'f:1=<-' ix.io"

@@ -1,0 +1,92 @@
+super + {h,j,k,l}
+	waitron window_move {-20 0, 0 20, 0 -20, 20 0}
+
+super + shift  + {h,j,k,l}
+	waitron window_resize {-20 0, 0 20, 0 -20, 20 0}
+
+super + alt  + {h,j,k,l}
+	waitron window_move {-50 0, 0 50, 0 -50, 50 0}
+
+super + shift + alt + {h,j,k,l}
+	waitron window_resize {-50 0, 0 50, 0 -50, 50 0}
+
+super + ctrl + {h,j,k,l}
+	waitron window_cardinal_focus {left,down,up,right}
+
+super + alt + q
+	waitron wm_quit 0
+
+super + f
+	waitron window_maximize
+
+super + w
+	waitron window_close
+
+super + b
+	waitron window_hor_maximize
+
+super + v
+	waitron window_ver_maximize
+
+super + m
+	waitron window_monocle
+
+super + Tab
+	waitron window_cycle
+
+super + shift + Tab
+	waitron window_rev_cycle
+
+super + ctrl + Tab
+	waitron window_focus_last
+
+super + {_,shift +}{1-9}
+	waitron {group_toggle,group_add_window} {1-9}
+
+super + ctrl + r
+	waitron group_remove_window
+
+super + alt + ctrl + {1-4}
+	waitron group_remove_all_windows {1-4}
+
+super + Return
+	alacritty
+
+ctrl + shift + b
+	chromium
+
+ctrl + shift + l
+  slock
+
+super + d
+  rofi -combi-modi window,drun,run -show combi -modi combi
+
+super + {Left,Right,Up,Down,Home}
+	waitron window_snap {topleft,topright,bottomleft,bottomright,middle}
+
+super + shift + r
+	$HOME/wc/windowchefrc
+
+super + t
+  tile
+
+Print
+  $HOME/bin/screenshot
+
+XF86AudioPlay
+  mpc toggle
+XF86AudioNext
+  mpc next
+XF86AudioPrev
+  mpc prev
+XF86AudioStop 
+  mpc stop
+
+XF86AudioRaiseVolume
+  amixer set Master 5%+
+XF86AudioLowerVolume 
+  amixer set Master 5%-
+XF86AudioMute        
+  amixer set Master toggle
+
+

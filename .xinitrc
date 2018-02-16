@@ -7,5 +7,6 @@ feh --bg-scale /home/zach/bg.png
 compton --config /home/zach/.config/compton/compton.conf &
 xset r rate 200 25
 # start i3
-exec i3
-
+#exec i3
+sxhkd -c ~/wc/sxhkdrc &
+exec windowchef -c ~/wc/windowchefrc

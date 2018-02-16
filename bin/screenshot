@@ -1,0 +1,6 @@
+#!/bin/bash
+# Simple Screenshot (with selection), dumps in the home directory
+
+filename=$HOME/$(date +%s).png
+maim -s $filename
+notify-send "Screenshot" "Screenshot saved to $filename"

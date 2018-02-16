@@ -1,0 +1,61 @@
+#!/bin/bash
+# Lemonbar 
+# init stuff
+if [ $(pgrep -cx bar) -gt 1 ] ; then
+  printf "%s\n" "Bar is already running, bailing out..." >&2
+  exit 1
+fi
+
+#trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+# real config
+colour_bg="#FF1D1F21"         
+colour_fg="#FFC5C8C6"
+
+# Fonts
+font1="Inconsolatas"
+font2="FontAwesome"
+
+# Panel
+w=2560
+h=30
+x=0
+y=0
+
+music() {
+  music=$(n=$(mpc current); if [ -z "$n" ] ; then echo; else echo " $n"; fi)
+  echo "${music}"
+}
+
+cpu(){
+  cpu=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}')
+  echo " ${cpu}"
+}
+
+ram(){
+  ram=$(free -m | awk '/^Mem/ {printf("%u%%", 100*$3/$2);}')
+  echo "RAM: ${ram}"
+}
+
+temp(){
+  temp=$(sensors | awk 'BEGIN{i=0;t=0;b=0}/id [0-9]/{b=$4};/Core/{++i;t+=$3}END{if(i>0){printf("%0.1f\n",t/i)}else{sub(/[^0-9.]/,"",b);print b}}')
+  echo " ${temp}C"
+}
+
+clock(){
+  date=$(date "+%A %d %b %Y")
+  time=$(date "+%I:%M %p")
+  echo " ${date}  ${time}"
+}
+
+vol(){
+  vol=$(amixer get 'Master' | grep Mono: | sed 's/ *Mono: .* \[\([^ ]*\)\] \[[^ ]*\] \[\([^ ]*\)\]/\1 \2/;s/.*off/off/;s/\([^ ]*\).*/\1/')
+  echo " ${vol}"
+}
+
+while :; do
+  echo "  $(cpu) $(temp) $(ram) %{c}$(music) %{r}$(clock)  "
+  sleep 2
+done | lemonbar -g ${w}x${h}+${x}+${y} -f "$font1" \
+  -f "$font2" -d -p -B "${colour_bg}" -F "${colour_fg}"
+
