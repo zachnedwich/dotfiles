@@ -1,6 +1,7 @@
 [user]
   name = Zach Nedwich
-  email = znedwich@gmail.com
+  email = zach@znedw.com
+	signingkey = zach@znedw.com 
 [core]
   attributesfile = ~/.gitattributes_global
   excludesfile = ~/.gitignore_global
@@ -46,3 +47,7 @@
 [pager]
   diff = diff-so-fancy | less --tabs=4 -RFX
   show = diff-so-fancy | less --tabs=4 -RFX
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
